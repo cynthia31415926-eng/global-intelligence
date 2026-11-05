@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<title>全球资讯看板 · 手机版</title>
+<!-- PWA / 添加到主屏幕 -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="全球资讯" />
+<meta name="theme-color" content="#f5f5f7" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230a84ff'/%3E%3Cstop offset='1' stop-color='%23bf5af2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23fff'/%3E%3C/svg%3E" />
+<style>
+  :root{
+    --bg:#f5f5f7;
+    --card:#ffffff;
+    --stroke:rgba(0,0,0,.07);
+    --stroke-soft:rgba(0,0,0,.05);
+    --text:#1d1d1f;
+    --text-2:#6e6e73;
+    --text-3:#86868b;
+    --blue:#0a84ff;
+    --green:#30d158;
+    --orange:#ff9f0a;
+    --red:#ff453a;
+    --purple:#bf5af2;
+    --teal:#40c8c0;
+    --pink:#ff375f;
+    --radius:18px;
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;
+  }
+  html[data-theme="dark"]{
+    --bg:#000000;
+    --card:#1c1c1e;
+    --stroke:rgba(255,255,255,.1);
+    --stroke-soft:rgba(255,255,255,.07);
+    --text:#f5f5f7;
+    --text-2:#c7c7cc;
+    --text-3:#8e8e93;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;letter-spacing:-.012em;
+    min-height:100vh;overscroll-behavior-y:none;transition:background .4s,color .4s;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+
+  .app{max-width:440px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;
+    padding-bottom:calc(env(safe-area-inset-bottom,0px) + 78px)}
+
+  /* ---------- header ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    padding:calc(env(safe-area-inset-top,0px) + 12px) 18px 12px;
+    background:color-mix(in srgb,var(--bg) 80%,transparent);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid var(--stroke-soft);
+    display:flex;align-items:center;gap:12px;
+  }
+  .logo{width:32px;height:32px;border-radius:9px;flex:0 0 auto;
+    background:conic-gradient(from 210deg,#0a84ff,#bf5af2,#ff375f,#ff9f0a,#30d158,#0a84ff);
+    position:relative;box-shadow:0 3px 12px rgba(10,132,255,.3)}
+  .logo::after{content:"";position:absolute;inset:6px;border-radius:6px;background:rgba(0,0,0,.5)}
+  .logo i{position:absolute;inset:0;margin:auto;width:10px;height:10px;border-radius:50%;background:#fff;z-index:2}
+  .topbar .tt{flex:1;min-width:0}
+  .topbar .t1{font-size:16px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+  .topbar .t2{font-size:10.5px;color:var(--text-3);font-weight:500;margin-top:2px}
+  .round{
+    width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    background:var(--card);border:1px solid var(--stroke);color:var(--text-2);font-size:15px;
+    transition:all .2s;
+  }
+  .round:active{transform:scale(.92)}
+
+  /* ---------- segmented industry ---------- */
+  .seg{display:flex;gap:8px;overflow-x:auto;padding:14px 18px 4px;scrollbar-width:none}
+  .seg::-webkit-scrollbar{display:none}
+  .seg .s{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;
+    font-size:13px;font-weight:600;color:var(--text-2);
+    padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--stroke);
+    transition:all .22s cubic-bezier(.2,.7,.3,1);
+  }
+  .seg .s .dot{width:7px;height:7px;border-radius:50%;background:var(--c,#0a84ff)}
+  .seg .s.on{color:#fff;background:#1d1d1f;border-color:transparent}
+  html[data-theme="dark"] .seg .s.on{background:#f5f5f7;color:#1d1d1f}
+  .seg .s .n{font-size:10.5px;opacity:.6}
+
+  /* ---------- main ---------- */
+  main{flex:1;padding:14px 18px 0}
+  .view{display:none;animation:fade .3s ease}
+  .view.on{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* hero */
+  .hero{
+    position:relative;overflow:hidden;border-radius:22px;padding:20px;margin-bottom:14px;
+    background:linear-gradient(150deg,#fff,#eef2ff);
+    border:1px solid var(--stroke);box-shadow:0 10px 30px rgba(0,0,0,.05);
+  }
+  html[data-theme="dark"] .hero{background:linear-gradient(150deg,#1c1c1e,#14121c)}
+  .hero .kicker{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.08em;color:#0a84ff;text-transform:uppercase}
+  .hero h1{font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.12;margin:10px 0 8px}
+  .hero .lead{font-size:13px;color:var(--text-2);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .hero .hmeta{display:flex;gap:14px;margin-top:14px;font-size:11px;color:var(--text-3)}
+  .hero .hmeta b{color:var(--text);font-weight:600}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
+  .stat{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:14px 15px}
+  .stat .k{font-size:11px;color:var(--text-3);font-weight:600}
+  .stat .v{font-size:26px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-top:4px}
+  .stat .d{font-size:10.5px;color:var(--text-3);margin-top:3px}
+  .stat.c1 .v{color:#0a84ff}.stat.c2 .v{color:#30a94f}.stat.c3 .v{color:#ff9f0a}.stat.c4 .v{color:#ff375f}
+
+  /* section */
+  .sec{margin-bottom:20px}
+  .sec-head{display:flex;align-items:center;gap:8px;margin-bottom:11px}
+  .sec-head .dot{width:8px;height:8px;border-radius:50%;background:var(--c,#0a84ff)}
+  .sec-head h2{font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .sec-head .cnt{font-size:11px;color:var(--text-3);font-weight:600;margin-left:2px}
+
+  /* card */
+  .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);
+    padding:16px 17px;margin-bottom:11px;display:block;transition:transform .2s}
+  .card:active{transform:scale(.985)}
+  .card-top{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+  .ind{font-size:10.5px;font-weight:700;padding:3.5px 9px;border-radius:6px;color:#fff}
+  .ind.ai{background:#0a84ff}.ind.nev{background:#30a94f}.ind.bci{background:#bf5af2}
+  .ind.aero{background:#ff9f0a}.ind.ship{background:#40c8c0}.ind.low{background:#ff375f}.ind.gh{background:#8e8e93}
+  .aud{font-size:9.5px;font-weight:700;padding:3.5px 7px;border-radius:6px;border:1px solid}
+  .aud.b{color:#0a84ff;border-color:rgba(10,132,255,.4)}
+  .aud.g{color:#30a94f;border-color:rgba(48,169,79,.4)}
+  .card-top .time{margin-left:auto;font-size:11px;color:var(--text-3);font-variant-numeric:tabular-nums}
+  .card h3{font-size:15px;font-weight:680;letter-spacing:-.015em;line-height:1.38;margin-bottom:5px}
+  .card .desc{font-size:12.5px;color:var(--text-2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:9px}
+  .card-foot{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-3)}
+  .card-foot .src{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .card-foot .tags{margin-left:auto;display:flex;gap:5px;flex:0 0 auto}
+  .tag{font-size:10px;font-weight:600;padding:2.5px 7px;border-radius:6px;background:var(--stroke-soft);color:var(--text-2)}
+
+  /* policy / tender / github list */
+  .item{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:15px 16px;margin-bottom:10px;display:block;transition:transform .2s}
+  .item:active{transform:scale(.985)}
+  .item .row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+  .item .t{font-size:14px;font-weight:650;line-height:1.42}
+  .item .sub{font-size:11px;color:var(--text-3);margin-top:5px;display:flex;gap:8px;align-items:center}
+  .gh-rank{font-size:18px;font-weight:800;font-family:"SF Mono",Menlo,monospace;color:var(--text-3);width:24px}
+  .gh-name{font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px}
+  .gh-desc{font-size:12px;color:var(--text-2);line-height:1.5;margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .gh-meta{display:flex;gap:12px;margin-top:7px;font-size:11px;color:var(--text-3)}
+  .gh-meta .star{color:#e6a700}
+
+  .empty{text-align:center;padding:50px 20px;color:var(--text-3)}
+  .empty .big{font-size:34px;margin-bottom:8px}
+
+  /* ---------- bottom tab bar ---------- */
+  .tabbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    display:flex;justify-content:space-around;align-items:stretch;
+    padding:6px 8px calc(env(safe-area-inset-bottom,0px) + 6px);
+    background:color-mix(in srgb,var(--bg) 82%,transparent);
+    -webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);
+    border-top:1px solid var(--stroke-soft);
+  }
+  .tabbar .tb{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+    padding:7px 4px 5px;border-radius:12px;color:var(--text-3);font-size:10px;font-weight:600;
+    transition:color .2s;
+  }
+  .tabbar .tb svg{width:23px;height:23px}
+  .tabbar .tb.on{color:var(--blue)}
+
+  footer{max-width:440px;margin:10px auto 0;padding:0 18px;font-size:10.5px;color:var(--text-3);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="logo"><i></i></div>
+    <div class="tt">
+      <div class="t1">全球资讯看板</div>
+      <div class="t2" id="sub">To B / To G · 近3天 · 每日 09:00</div>
+    </div>
+    <button class="round" id="themeBtn" title="深浅色">◐</button>
+  </header>
+
+  <div class="seg" id="seg"></div>
+
+  <main>
+    <section class="view on" id="view-feed"></section>
+    <section class="view" id="view-policy"></section>
+    <section class="view" id="view-tender"></section>
+    <section class="view" id="view-gh"></section>
+    <footer>
+      种子源 → AI 自动扩充同类优质源 · 数据截至 <span id="dateStr"></span> · 静态快照，接入定时采集后每日自动刷新。<br>添加到主屏幕：Safari 分享 → 添加到主屏幕，全屏运行即“屏保”。
+    </footer>
+  </main>
+</div>
+
+<nav class="tabbar" id="tabbar">
+  <button class="tb on" data-v="feed">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M4 9h16M8 13h8M8 16h5"/></svg>
+    <span>资讯</span>
+  </button>
+  <button class="tb" data-v="policy">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10v18l-5-3-5 3z"/></svg>
+    <span>政策</span>
+  </button>
+  <button class="tb" data-v="tender">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V9l6-4 6 4v11"/><path d="M10 12h4M10 16h4"/></svg>
+    <span>招投标</span>
+  </button>
+  <button class="tb" data-v="gh">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 3 5 5 5 9a5 5 0 0 1-10 0c0-4 2-6 5-9z"/><path d="M12 21c-1.5-1.5-2-3-2-5"/></svg>
+    <span>热门</span>
+  </button>
+</nav>
+
+<script>
+const DATA = [
+  // AI
+  {id:3,ind:"ai",type:"product",aud:"toB",title:"商汤新版大模型引入跨会话长期记忆，企业级能力再迭代",src:"南方都市报",time:"11-03",hot:86,
+    desc:"商汤发布新版大模型，引入跨会话长期记忆能力，面向企业客户强化个性化与持续学习，To B 落地再进一步。",
+    tags:["大模型","长期记忆","企业级"],url:"https://m.mp.oeeee.com/a/BAAFRD0000202611031697009.html"},
+  {id:4,ind:"ai",type:"product",aud:"toB",title:"美团 LongCat-2.5 发布：长程任务、多模态与商业分析增强",src:"中国金融信息网",time:"11-02",hot:81,
+    desc:"美团发布 LongCat-2.5 大模型，强化长程任务、多模态与商业分析能力，「国芯国模」生态提速。",
+    tags:["国芯国模","多模态"],url:"https://www.cnfin.com/gs-lb/detail/20261102/4489926_1.html"},
+  {id:5,ind:"ai",type:"policy",aud:"toG",title:"广东：加快发展「人工智能+消费」，加力支持智能网联汽车",src:"广东省政府",time:"11-05",hot:88,
+    desc:"广东部署「人工智能+消费」与智能网联汽车支持政策，释放 AI 应用与车联网场景采购需求。",
+    tags:["AI+消费","智能网联","政策"],url:"https://www.163.com/dy/article/LAQQ94ED053469RG.html"},
+  {id:6,ind:"ai",type:"policy",aud:"toG",title:"粤港澳大湾区国际科技创新中心 40 条支持举措发布",src:"广东省政府",time:"11-05",hot:84,
+    desc:"40 条支持举措落地，聚焦科技创新中心建设，为 AI、低空等新质生产力领域打开资金与场景通道。",
+    tags:["大湾区","科技创新","40条"],url:"https://www.gd.gov.cn/gdywdt/zwzt/ygadwq/kjcyhcsq/content/post_4973931.html"},
+  // 新能源车
+  {id:7,ind:"nev",type:"market",aud:"toB",title:"全球动力电池装车量出炉：宁德时代扩份额，韩系三强跌破 13%",src:"OFweek 锂电",time:"11-04",hot:85,
+    desc:"最新全球动力电池装车量排名出炉，宁德时代份额继续扩大，韩系三强合计跌破 13%，格局加速集中。",
+    tags:["装车量","宁德时代","份额"],url:"https://libattery.ofweek.com/2026-11/ART-36001-12004-30710439.html"},
+  {id:8,ind:"nev",type:"market",aud:"toB",title:"大和：中国新能源车订单按周升 48%，多数品牌动能改善",src:"证券之星 / 大和",time:"11-04",hot:78,
+    desc:"机构报告显示中国新能源车订单按周环比升 48%，多数品牌动能改善，年末冲量开启。",
+    tags:["订单","周度","动能"],url:"https://wap.stockstar.com/detail/IG2026110400026960"},
+  {id:9,ind:"nev",type:"product",aud:"toB",title:"6 分钟充满电：东风争夺宁德时代最新超充电池首搭权",src:"证券时报 / 金融界",time:"11-03",hot:82,
+    desc:"东风被曝早于 Q2 即在谈判，争抢宁德时代第三代神行超充电池首搭权，6 分钟充满电成为卡位焦点。",
+    tags:["超充","神行电池","6分钟"],url:"https://finance.jrj.com.cn/2026/11/03131758989538.shtml"},
+  // 脑机接口
+  {id:10,ind:"bci",type:"market",aud:"toB",title:"暖芯迦完成 5 亿元 C+ 轮融资，视觉脑机接口跑出中国速度",src:"投资界 / 东方财富",time:"11-03",hot:92,
+    desc:"暖芯迦完成 5 亿元 C+ 轮融资，累计融资达 10 亿元，视觉脑机接口芯片产业化加速。",
+    tags:["C+轮","视觉脑机","5亿"],url:"https://news.pedaily.cn/202611/571250.shtml"},
+  {id:11,ind:"bci",type:"market",aud:"toB",title:"雷军、高瓴投了一家脑机接口公司，头部资本密集入场",src:"立方基金通",time:"11-04",hot:79,
+    desc:"雷军、高瓴等头部资本押注脑机接口公司，赛道融资热度持续升温，产业进入资本兑现期。",
+    tags:["雷军","高瓴","融资"],url:"https://app.dahecube.com/nweb/pc/spiderdetail.html?spidid=885790"},
+  {id:12,ind:"bci",type:"market",aud:"toB",title:"君柔科技完成近亿元天使+轮融资，专注侵入式脑机接口",src:"经济观察报",time:"11-02",hot:71,
+    desc:"君柔科技专注侵入式脑机接口，完成近亿元天使+轮融资，脑机接口赛道资本持续升温。",
+    tags:["侵入式","天使+"],url:"http://www.eeo.com.cn/2026/1102/1082130.shtml"},
+  // 商业航天
+  {id:13,ind:"aero",type:"product",aud:"toG",title:"力箭二号一箭 18 星：千帆星座大规模组网提速",src:"新华网 / 科技日报",time:"11-03",hot:98,
+    desc:"力箭二号成功发射千帆极轨 21 组 18 颗卫星，商业航天星座组网进入大运力阶段，卫星互联网节奏加快。",
+    tags:["一箭18星","星座组网"],url:"https://www.news.cn/video/20261103/b50e8aefe896475d9bd4a92d975bd4ce/c.html"},
+  {id:14,ind:"aero",type:"market",aud:"toB",title:"中国商火一年三次增资，商业航天资本竞速白热化",src:"网易财经",time:"11-04",hot:75,
+    desc:"中国商业火箭公司一年三次增资，融资节奏加快，留给后来者的时间窗口收窄。",
+    tags:["增资","商业火箭","竞速"],url:"https://www.163.com/dy/article/LAUGB2IU0553IYZB.html"},
+  // 智能船舶
+  {id:15,ind:"ship",type:"product",aud:"toB",title:"Novamarine 联手 EDGE 推出自主导航无人艇",src:"Borsa Italiana",time:"11-03",hot:63,
+    desc:"Novamarine 与阿联酋 EDGE 合作推出自主导航海军无人艇，无人船从科研走向军贸与商业订单。",
+    tags:["无人艇","自主导航"],url:"https://www.borsaitaliana.it/borsa/notizie/teleborsa/finanza/novamarine-lancia-droni-navali-a-guida-autonoma-in-partnership-con-edge-121_2026-11-03_TLB.html?lang=it"},
+  {id:16,ind:"ship",type:"research",aud:"toG",title:"智能船舶：从自动驾驶到整船数字孪生的技术演进",src:"经济日报",time:"11-02",hot:58,
+    desc:"整船数字孪生、自主避碰与岸船协同成为智能船舶下一阶段攻关重点。",
+    tags:["数字孪生","岸船协同"],url:"http://www.jingjiribao.cn/static/detail.jsp?id=690088"},
+  // 低空经济
+  {id:17,ind:"low",type:"policy",aud:"toG",title:"广州：加强航空器及升空物飞行活动管控通告",src:"广州市政府",time:"11-05",hot:87,
+    desc:"广州发布航空器及升空物飞行活动管控通告并解读，低空空域管理走向规范化、常态化。",
+    tags:["空域管控","广州","政策"],url:"https://www.gz.gov.cn/gkmlpt/content/11/11085/post_11085942.html"},
+  {id:18,ind:"low",type:"policy",aud:"toG",title:"广东：开展低空经济领域企业投资服务",src:"中国经济信息网",time:"11-05",hot:83,
+    desc:"广东开展低空经济领域企业投资服务，推动资本与低空基建、运营企业对接，金融赋能产业。",
+    tags:["投资服务","低空","广东"],url:"https://www.cei.cn//defaultsite/s/article/2026/11/05/4b4ff607-9d914745-01a1-a9639a0b-3783_home.html"},
+  {id:19,ind:"low",type:"product",aud:"toB",title:"小鹏飞行汽车加速出海，eVTOL 商业化试水提速",src:"12365auto",time:"11-03",hot:76,
+    desc:"小鹏汇天飞行汽车推进订单交付与海外试水，低空出行落地节奏加快。",
+    tags:["eVTOL","出海"],url:"https://www.12365auto.com/news/20261103/578399.shtml"},
+  // GitHub 热门
+  {id:20,ind:"gh",type:"github",aud:"toB",title:"GitHub 每日趋势（11-05）：AI 与 Agent 项目持续霸榜",src:"GitHub Trending",time:"11-05",hot:80,stars:"—",
+    desc:"今日涨星榜集中在 AI Agent、开源工具与数据洞察项目，开发者生态向技能层沉淀。",
+    tags:["Trending","Agent"],url:"https://refft.com/trending-2026-11-05-daily.html"},
+  {id:21,ind:"gh",type:"github",aud:"toB",title:"DeepSeek Harness：一周 +6,934 星的 Agent 编排框架",src:"GitHub Releases",time:"11-01",hot:93,stars:"6,934",
+    desc:"面向 AI Agent 编排的框架单周涨星近 7000，Agent 基础设施热度持续攀升。",
+    tags:["Agent","Orchestration"],url:"https://github.com/RyanAlberts/best-of-Agent-Harnesses/releases/tag/digest-2026-11-01"},
+  {id:22,ind:"gh",type:"github",aud:"toB",title:"rising-repos：本月新晋开源项目星速榜（含许可证提醒）",src:"GitHub",time:"11-05",hot:68,stars:"—",
+    desc:"按「每日涨星」排名本月新晋开源项目，附带许可证警告，帮 To B 团队筛选可商用依赖。",
+    tags:["涨星榜","许可证"],url:"https://github.com/wilsonwu-ai/rising-repos"},
+];
+const POLICY = [
+  {t:"广东：加快发展「人工智能+消费」加力支持智能网联汽车",src:"广东省政府",time:"11-05",tag:"AI",url:"https://www.163.com/dy/article/LAQQ94ED053469RG.html"},
+  {t:"粤港澳大湾区国际科技创新中心 40 条支持举措",src:"广东省政府",time:"11-05",tag:"湾区",url:"https://www.gd.gov.cn/gdywdt/zwzt/ygadwq/kjcyhcsq/content/post_4973931.html"},
+  {t:"广州：加强航空器及升空物飞行活动管控通告",src:"广州市政府",time:"11-05",tag:"低空",url:"https://www.gz.gov.cn/gkmlpt/content/11/11085/post_11085942.html"},
+  {t:"广东：开展低空经济领域企业投资服务",src:"中国经济信息网",time:"11-05",tag:"低空",url:"https://www.cei.cn//defaultsite/s/article/2026/11/05/4b4ff607-9d914745-01a1-a9639a0b-3783_home.html"},
+];
+const TENDER = [
+  {t:"广东省工信厅：2027 年省级人工智能技术攻坚项目入库通知",src:"广东省工信厅",time:"11-05",amount:"项目入库",url:"https://www.gdqy.gov.cn/qygxj/gkmlpt/content/2/2204/post_2204712.html"},
+  {t:"广州市南沙区全空间无人体系产业专利导航项目征集",src:"中国招标网",time:"11-05",amount:"征集公告",url:"https://m.chinabidding.cn/zbgg/U-vz0sriS.html"},
+  {t:"广州供电局 AI 数据智能分析匹配模型组件（二次采购）",src:"南方电网招投标",time:"11-03",amount:"采购公告",url:"http://www.bidding.csg.cn/fzbgg/1200448414.jhtml"},
+  {t:"广东外语外贸大学 AI 云帆译二期建设项目结果公告",src:"中国政府采购网",time:"11-02",amount:"结果公告",url:"http://www.ccgp.gov.cn/cggg/dfgg/zbgg/202611/t20261102_27604523.htm"},
+  {t:"琶洲港澳码头低空科技公园配套设施 EPC 总承包招标",src:"脉头条招投标",time:"11-03",amount:"招标公告",url:"https://www.maituobao.com/bidding/128bb89290bb4ae6"},
+];
+const INDUSTRIES = [
+  {key:"ai",name:"AI",color:"#0a84ff"},
+  {key:"nev",name:"新能源车",color:"#30a94f"},
+  {key:"bci",name:"脑机接口",color:"#bf5af2"},
+  {key:"aero",name:"商业航天",color:"#ff9f0a"},
+  {key:"ship",name:"智能船舶",color:"#40c8c0"},
+  {key:"low",name:"低空",color:"#ff375f"},
+  {key:"gh",name:"GitHub",color:"#8e8e93"},
+];
+const IND = Object.fromEntries(INDUSTRIES.map(i=>[i.key,i]));
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const now = new Date();
+const weekCN=["日","一","二","三","四","五","六"];
+const dateStr=`${now.getMonth()+1}月${now.getDate()}日 · 周${weekCN[now.getDay()]}`;
+document.getElementById("dateStr").textContent=dateStr;
+
+let curInd="all";
+
+/* segmented */
+function renderSeg(){
+  const el=document.getElementById("seg");
+  let html=`<button class="s on" data-i="all" style="--c:#0a84ff">全部</button>`;
+  html+=INDUSTRIES.map(m=>{
+    const n=DATA.filter(d=>d.ind===m.key).length;
+    return `<button class="s" data-i="${m.key}" style="--c:${m.color}"><span class="dot"></span>${esc(m.name)}<span class="n">${n}</span></button>`;
+  }).join("");
+  el.innerHTML=html;
+}
+document.getElementById("seg").addEventListener("click",e=>{
+  const b=e.target.closest(".s"); if(!b) return;
+  document.querySelectorAll("#seg .s").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); curInd=b.dataset.i;
+  renderFeed();
+});
+
+/* feed view */
+function feedList(){
+  return DATA.filter(d=>curInd==="all"||d.ind===curInd);
+}
+function cardHtml(d){
+  const m=IND[d.ind];
+  const aud=d.aud==="toB"?"b":"g";
+  return `<a class="card" href="${esc(d.url)}" target="_blank" rel="noopener">
+    <div class="card-top"><span class="ind ${m.key}">${esc(m.name)}</span><span class="aud ${aud}">To ${d.aud==="toB"?"B":"G"}</span><span class="time">${esc(d.time)}</span></div>
+    <h3>${esc(d.title)}</h3>
+    <div class="desc">${esc(d.desc)}</div>
+    <div class="card-foot"><span class="src">${esc(d.src)}</span><span class="tags">${(d.tags||[]).slice(0,2).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</span></div>
+  </a>`;
+}
+function renderFeed(){
+  const el=document.getElementById("view-feed");
+  const list=feedList();
+  const hero=`
+    <div class="hero">
+      <span class="kicker">● 今日头条 · 脑机接口</span>
+      <h1>暖芯迦完成 5 亿元 C+ 轮融资</h1>
+      <div class="lead">视觉脑机接口企业暖芯迦完成 5 亿元 C+ 轮融资，累计融资达 10 亿元，脑机接口产业化加速。</div>
+      <div class="hmeta"><span><b>来源</b> 投资界</span><span><b>关注度</b> 92</span><span><b>时效</b> 近2天</span></div>
+    </div>
+    <div class="stats">
+      <div class="stat c1"><div class="k">今日资讯</div><div class="v">${DATA.length}</div><div class="d">近3天 · 7大行业</div></div>
+      <div class="stat c2"><div class="k">广东/广州政策</div><div class="v">${POLICY.length}</div><div class="d">AI · 低空</div></div>
+      <div class="stat c3"><div class="k">招投标/课题</div><div class="v">${TENDER.length}</div><div class="d">To G 活跃</div></div>
+      <div class="stat c4"><div class="k">GitHub 热门</div><div class="v">${DATA.filter(d=>d.ind==="gh").length}</div><div class="d">Agent 生态领涨</div></div>
+    </div>`;
+  if(!list.length){
+    el.innerHTML=hero+`<div class="empty"><div class="big">🔍</div><p>该行业暂无资讯</p></div>`;
+    return;
+  }
+  const cards=list.map(cardHtml).join("");
+  el.innerHTML=hero+`<div class="sec"><div class="sec-head"><span class="dot" style="--c:#0a84ff"></span><h2>${curInd==="all"?"全部资讯":IND[curInd].name}</h2><span class="cnt">${list.length} 条</span></div>${cards}</div>`;
+}
+
+/* policy / tender / gh views */
+function renderPolicy(){
+  document.getElementById("view-policy").innerHTML=`
+    <div class="sec"><div class="sec-head"><span class="dot" style="--c:#30a94f"></span><h2>广东 · 广州政策风向</h2><span class="cnt">${POLICY.length} 项</span></div>
+    ${POLICY.map(p=>`<a class="item" href="${esc(p.url)}" target="_blank" rel="noopener">
+      <div class="row"><span class="aud g">G</span><span style="margin-left:auto;font-size:11px;color:var(--text-3)">${esc(p.time)}</span></div>
+      <div class="t">${esc(p.t)}</div>
+      <div class="sub"><span>${esc(p.src)}</span><span class="tag" style="font-size:10px;background:var(--stroke-soft);padding:2.5px 7px;border-radius:6px">政策风向</span></div>
+    </a>`).join("")}</div>`;
+}
+function renderTender(){
+  document.getElementById("view-tender").innerHTML=`
+    <div class="sec"><div class="sec-head"><span class="dot" style="--c:#ff9f0a"></span><h2>招投标 · 课题发布</h2><span class="cnt">${TENDER.length} 项</span></div>
+    ${TENDER.map(t=>`<a class="item" href="${esc(t.url)}" target="_blank" rel="noopener">
+      <div class="row"><span class="aud b">B/G</span><span style="margin-left:auto;font-size:10.5px;font-weight:700;color:var(--orange)">${esc(t.amount)}</span></div>
+      <div class="t">${esc(t.t)}</div>
+      <div class="sub"><span>${esc(t.src)}</span><span>${esc(t.time)}</span></div>
+    </a>`).join("")}</div>`;
+}
+function renderGh(){
+  const gh=DATA.filter(d=>d.ind==="gh");
+  document.getElementById("view-gh").innerHTML=`
+    <div class="sec"><div class="sec-head"><span class="dot" style="--c:#ff375f"></span><h2>GitHub 热门项目</h2><span class="cnt">${gh.length} 个</span></div>
+    ${gh.map((d,i)=>`<a class="item" href="${esc(d.url)}" target="_blank" rel="noopener">
+      <div class="row"><span class="gh-rank">${i+1}</span><span class="gh-name">◈ ${esc(d.title.split("：")[0])}</span></div>
+      <div class="gh-desc">${esc(d.desc)}</div>
+      <div class="gh-meta"><span class="star">★ ${esc(d.stars||"—")}</span><span>${esc(d.time)}</span></div>
+    </a>`).join("")}</div>`;
+}
+
+/* bottom tab bar */
+document.getElementById("tabbar").addEventListener("click",e=>{
+  const b=e.target.closest(".tb"); if(!b) return;
+  document.querySelectorAll("#tabbar .tb").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on");
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
+  document.getElementById("view-"+b.dataset.v).classList.add("on");
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+document.getElementById("themeBtn").addEventListener("click",()=>{
+  const h=document.documentElement;
+  h.dataset.theme=h.dataset.theme==="dark"?"light":"dark";
+  document.querySelector('meta[name="theme-color"]').content=h.dataset.theme==="dark"?"#000000":"#f5f5f7";
+});
+
+renderSeg();
+renderFeed();
+renderPolicy();
+renderTender();
+renderGh();
+</script>
+</body>
+</html>
