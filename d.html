@@ -376,84 +376,84 @@
 /* ================= data ================= */
 const DATA = [
   // AI
-  {id:1,ind:"ai",type:"market",aud:"toB",title:"OpenAI 百亿融资落地，估值 1.25 万亿美元",src:"AI 资讯日报",time:"11-08",hot:97,
-    desc:"OpenAI 完成新一轮百亿美元融资，估值达 1.25 万亿美元，AI 龙头资本与产业化进一步提速。",
-    tags:["OpenAI","百亿融资","估值"],url:"https://devpress.csdn.net/aibjcy/6aefd6d040858c2d88193144.html"},
-  {id:2,ind:"ai",type:"product",aud:"toB",title:"Kimi 开放 2.8 万亿权重，开源生态加速",src:"AI 资讯日报",time:"11-08",hot:88,
+  {id:1,ind:"ai",type:"product",aud:"toB",title:"Anthropic 启动 IPO 路演，新一代模型同步发布",src:"全球科技早参 / 搜狐",time:"11-10",hot:96,
+    desc:"Anthropic 最快本周二启动 IPO 路演，并在 IPO 前发布 Fable 5.2、MythosAI 等新模型，速度更快、成本更低。",
+    tags:["Anthropic","IPO","新模型"],url:"https://www.sohu.com/a/1099410614_115362"},
+  {id:2,ind:"ai",type:"product",aud:"toB",title:"谷歌将推出两款新 TPU 芯片，面向保密计算与长上下文",src:"全球科技早参 / 搜狐",time:"11-10",hot:84,
+    desc:"谷歌将推出两款新 TPU 芯片，分别面向保密计算与长上下文 AI 应用，算力基础设施竞争升级。",
+    tags:["TPU","谷歌","算力"],url:"https://www.sohu.com/a/1099410614_115362"},
+  {id:3,ind:"ai",type:"policy",aud:"toG",title:"广东率先出台省级全屋智能领域专项政策",src:"广东省政府",time:"11-08",hot:82,
+    desc:"广东率先出台省级全屋智能专项政策，推动全屋智能产业创新发展，释放智能家居与 AIoT 场景需求。",
+    tags:["全屋智能","专项政策","AIoT"],url:"https://www.gd.gov.cn/zwgk/zcjd/snzcsd/content/post_4976610.html"},
+  {id:4,ind:"ai",type:"product",aud:"toB",title:"Kimi 开放 2.8 万亿权重，开源生态加速",src:"AI 资讯日报",time:"11-08",hot:80,
     desc:"Kimi 开放 2.8 万亿参数权重，国产大模型开源生态提速，To B 二次开发门槛进一步降低。",
     tags:["Kimi","开源","权重"],url:"https://devpress.csdn.net/aibjcy/6aefd6d040858c2d88193144.html"},
-  {id:3,ind:"ai",type:"product",aud:"toB",title:"百度开源文心 5.5 Flash Base",src:"搜狐科技",time:"11-07",hot:83,
-    desc:"百度开源文心 5.5 Flash Base 模型，面向企业轻量化部署与推理场景，降低落地成本。",
-    tags:["文心","开源","Flash"],url:"https://www.sohu.com/a/1097704088_114986"},
-  {id:4,ind:"ai",type:"policy",aud:"toG",title:"AI 赋能宣传文化网络教育专题会议在广州召开",src:"广东省政府",time:"11-08",hot:82,
-    desc:"广东召开人工智能赋能宣传、文化、网络、教育事业发展专题会议，释放政务与公共服务 AI 应用需求。",
-    tags:["AI+政务","广州","专题会"],url:"https://www.gd.gov.cn/gdywdt/zwzt/kjzlzq/rc/content/post_4975947.html"},
   // 新能源车
-  {id:5,ind:"nev",type:"market",aud:"toB",title:"电动车 10 月月报：涨价落地、盈利修复，估值历史低位",src:"东方财富 / 研报",time:"11-08",hot:80,
+  {id:5,ind:"nev",type:"market",aud:"toB",title:"内地 10 月乘用车零售跌 27%，价格战持续承压",src:"明报",time:"11-10",hot:78,
+    desc:"内地 10 月乘用车零售同比下滑 27%，价格战持续，车企盈利与库存压力加大。",
+    tags:["零售","下滑","价格战"],url:"https://news.mingpao.com/pns/%e7%b6%93%e6%bf%9f/article/20261110/s00004/1794245341770/%e5%85%a7%e5%9c%b010%e6%9c%88%e4%b9%98%e7%94%a8%e8%bb%8a%e9%9b%b6%e5%94%ae%e8%b7%8c27"},
+  {id:6,ind:"nev",type:"market",aud:"toB",title:"电动车 10 月月报：涨价落地、盈利修复，估值历史低位",src:"东方财富 / 研报",time:"11-08",hot:74,
     desc:"10 月电动车行业涨价落地、盈利逐步修复，板块估值处于历史低位，机构关注盈利拐点。",
     tags:["月报","盈利","估值"],url:"https://data.jfinfo.com/news/4081700"},
-  {id:6,ind:"nev",type:"market",aud:"toB",title:"中国车市「双向割裂」信号开始凸显",src:"同花顺",time:"11-05",hot:74,
-    desc:"车市呈现高端与低价两端割裂、油电分化加剧的信号，车企产品结构战略面临再调整。",
-    tags:["车市","分化","结构"],url:"http://field.10jqka.com.cn/20261105/c681479170.shtml"},
   // 脑机接口
-  {id:7,ind:"bci",type:"product",aud:"toG",title:"我国牵头制定的脑机接口国际标准发布",src:"央视新闻",time:"11-07",hot:90,
+  {id:7,ind:"bci",type:"research",aud:"toG",title:"赵继宗院士：脑机接口稳定性需接受「五年大考」",src:"央广网",time:"11-09",hot:80,
+    desc:"中科院院士赵继宗指出，脑机接口稳定性与长期可靠性仍需接受五年以上临床验证。",
+    tags:["院士","稳定性","临床"],url:"https://tech.cnr.cn/mxhrdt/20261109/t20261109_527866869.shtml"},
+  {id:8,ind:"bci",type:"market",aud:"toB",title:"多重因素助力脑机接口产业驶入快车道",src:"立方投融",time:"11-09",hot:76,
+    desc:"政策、资本与技术多重因素共振，脑机接口产业加速驶入快车道，融资与临床进展密集。",
+    tags:["产业","快车道"],url:"https://www.dahecube.com/spiderdetail.html?spidid=889899"},
+  {id:9,ind:"bci",type:"product",aud:"toG",title:"我国牵头制定的脑机接口国际标准发布",src:"央视新闻",time:"11-07",hot:88,
     desc:"国家标准委牵头制定的脑机接口国际标准正式发布，我国在脑机接口标准制定上取得话语权。",
-    tags:["国际标准","国家标准委","话语权"],url:"https://tv.cctv.cn/2026/11/07/VIDE4qB1zdnjDypTbYVAEuoV261107.shtml"},
-  {id:8,ind:"bci",type:"research",aud:"toG",title:"院士解读脑机接口：演示≠治愈，仍在临床试验",src:"科普中国",time:"11-09",hot:78,
-    desc:"院士提醒脑机接口技术演示不等于治愈，多数仍在临床试验阶段，产业化需理性看待。",
-    tags:["院士","临床试验","理性"],url:"https://cloud.kepuchina.cn/h5/detail?id=7518748700013404160"},
-  {id:9,ind:"bci",type:"market",aud:"toB",title:"一周吸金超 30 亿：脑机接口融资狂飙",src:"36氪",time:"11-06",hot:76,
-    desc:"脑机接口赛道一周吸金超 30 亿元，资本密集押注，产业化进入资本兑现期。",
-    tags:["融资","30亿"],url:"https://eu.36kr.com/zh/p/4055384568387456"},
+    tags:["国际标准","话语权"],url:"https://tv.cctv.cn/2026/11/07/VIDE4qB1zdnjDypTbYVAEuoV261107.shtml"},
   // 商业航天
-  {id:10,ind:"aero",type:"product",aud:"toG",title:"谷神星二号（遥三）运载火箭发射成功",src:"科普中国",time:"11-09",hot:86,
-    desc:"谷神星二号遥三运载火箭发射成功，商业固体火箭常态化入轨能力再获验证。",
-    tags:["谷神星二号","遥三","入轨"],url:"https://cloud.kepuchina.cn/h5/detail?id=7518743355765465088"},
-  {id:11,ind:"aero",type:"product",aud:"toG",title:"商业火箭新型号试验成功，一箭四星入轨",src:"新华网",time:"11-07",hot:81,
+  {id:10,ind:"aero",type:"product",aud:"toG",title:"谷神星二号（遥三）运载火箭发射成功",src:"北京亦庄 / 科普中国",time:"11-09",hot:85,
+    desc:"谷神星二号遥三运载火箭飞行试验任务圆满成功，商业固体火箭常态化入轨能力再获验证。",
+    tags:["谷神星二号","遥三","入轨"],url:"https://www.ncsti.gov.cn/kjdt/scyq/bjjjjskfq/jkdt/202611/t20261109_262057.html"},
+  {id:11,ind:"aero",type:"product",aud:"toG",title:"商业火箭新型号试验成功，一箭四星入轨",src:"新华网",time:"11-07",hot:80,
     desc:"商业火箭新型号试验任务成功，一箭四星入轨，商业航天发射能力持续爬坡。",
-    tags:["一箭四星","新型号","入轨"],url:"https://app.xinhuanet.com/news/article.html?articleId=20261107cf504bb2241546eb860059526d9314a2"},
-  {id:12,ind:"aero",type:"market",aud:"toB",title:"蓝色起源「新格伦」火箭复飞推迟至 2027 年 1 月",src:"搜狐",time:"11-07",hot:68,
-    desc:"蓝色起源新格伦火箭复飞推迟至 2027 年 1 月，重型可回收火箭竞争格局再生变数。",
-    tags:["新格伦","推迟","可回收"],url:"https://www.sohu.com/a/1097944077_122135404"},
+    tags:["一箭四星","入轨"],url:"https://app.xinhuanet.com/news/article.html?articleId=20261107cf504bb2241546eb860059526d9314a2"},
+  {id:12,ind:"aero",type:"market",aud:"toB",title:"商业航天新趋势：可回收与星座组网双主线",src:"新浪财经",time:"11-09",hot:70,
+    desc:"商业航天进入可回收火箭与卫星星座组网双主线，资本与订单向头部企业集中。",
+    tags:["可回收","星座组网"],url:"https://finance.sina.com.cn/wm/2026-11-09/doc-iniycwiw3279982.shtml"},
   // 智能船舶
-  {id:13,ind:"ship",type:"research",aud:"toG",title:"中国船级社深圳分社：标准先行，深圳船舶产业多点突破",src:"中国船级社",time:"11-05",hot:62,
-    desc:"中国船级社深圳分社表示标准先行，深圳在智能船舶、绿色船舶等领域多点突破。",
-    tags:["标准先行","深圳","智能船舶"],url:"https://www.ccs.org.cn/ccswz/articleDetail?id=202611050287095128&columnId=201900002000000096"},
-  {id:14,ind:"ship",type:"market",aud:"toB",title:"湖北枝江造船订单排到 2028 年",src:"枝江新闻网",time:"11-06",hot:60,
-    desc:"枝江船舶制造订单已排至 2028 年，船舶制造景气度持续走高。",
-    tags:["订单","造船"],url:"http://www.sxzhijiang.com/content/show?newsid=1252157"},
+  {id:13,ind:"ship",type:"product",aud:"toB",title:"武汉理工设计 200TEU 纯电动智能远控集装箱船交付",src:"国际船舶网",time:"11-10",hot:72,
+    desc:"武汉理工船舶设计的 200TEU 纯电动智能远控集装箱海船成功交付，绿色智能船舶产业化提速。",
+    tags:["纯电动","智能远控","交付"],url:"https://www.imarine.cn/252383.html"},
+  {id:14,ind:"ship",type:"product",aud:"toB",title:"江苏远洋将测试电动船舶自主导航",src:"Splash247",time:"11-10",hot:66,
+    desc:"江苏远洋计划在电动船舶上测试自主导航，航运智能化与无人化探索再进一步。",
+    tags:["自主导航","电动船"],url:"https://splash247.com/jiangsu-ocean-shipping-to-test-autonomous-navigation-on-electric-vessels/"},
   // 低空经济
-  {id:15,ind:"low",type:"policy",aud:"toG",title:"中央两份文件部署低空经济，广州发布 30 项应用场景需求清单",src:"观点网",time:"11-05",hot:85,
-    desc:"中央两份文件部署低空经济发展，广州同步发布 30 项应用场景需求清单，释放大量低空项目机会。",
+  {id:15,ind:"low",type:"policy",aud:"toG",title:"广东省发改委：开展低空经济领域企业投资服务",src:"广东省发改委 / 海珠区政府",time:"11-09",hot:84,
+    desc:"广东省发改委开展低空经济领域企业投资服务，推动资本与低空基建、运营企业对接。",
+    tags:["投资服务","低空","广东"],url:"https://www.haizhu.gov.cn/gzhzfg/gkmlpt/content/11/11089/post_11089410.html"},
+  {id:16,ind:"low",type:"policy",aud:"toG",title:"中央两份文件部署低空经济，广州发布 30 项应用场景清单",src:"观点网",time:"11-05",hot:83,
+    desc:"中央两份文件部署低空经济发展，广州同步发布 30 项应用场景需求清单，释放低空项目机会。",
     tags:["中央文件","广州","场景清单"],url:"https://www.guandian.hk/article/20261105/10054042.html"},
-  {id:16,ind:"low",type:"policy",aud:"toG",title:"广州市应急管理局召开小鹏汇天工作座谈会",src:"广州市政府",time:"11-08",hot:72,
+  {id:17,ind:"low",type:"policy",aud:"toG",title:"广州市应急管理局召开小鹏汇天工作座谈会",src:"广州市政府",time:"11-08",hot:70,
     desc:"广州市应急管理局与小鹏汇天座谈，推动飞行汽车安全监管与低空应急救援场景落地。",
     tags:["小鹏汇天","应急","广州"],url:"https://www.gz.gov.cn/zt/jaqhyj/aqsj/content/post_11088830.html"},
-  {id:17,ind:"low",type:"tender",aud:"toG",title:"广州琶洲港澳码头低空科技公园配套设施工程公示",src:"广州市规自局",time:"11-08",hot:70,
-    desc:"琶洲港澳码头低空科技公园相关配套设施工程规划公示，低空文旅基建加速落地。",
-    tags:["琶洲","低空公园","工程"],url:"https://ghzyj.gz.gov.cn/ywpd/cxgh/ghxkgsgb/phgbnew/gbt/2025/content/post_11090056.html"},
   // GitHub 热门
-  {id:18,ind:"gh",type:"github",aud:"toB",title:"码力雷达 11-09 总榜：AI 工具持续领跑",src:"码力雷达",time:"11-09",hot:79,stars:"—",
+  {id:18,ind:"gh",type:"github",aud:"toB",title:"GitHub 日榜趋势速报（11-10）",src:"掘金 / GitHub Trending",time:"11-10",hot:78,stars:"—",
+    desc:"GitHub 日榜趋势集中在 AI Agent、开源模型与开发者工具。",
+    tags:["Trending","Agent"],url:"https://juejin.cn/post/7706071462373654579"},
+  {id:19,ind:"gh",type:"github",aud:"toB",title:"码力雷达 11-09 总榜：AI 工具持续领跑",src:"码力雷达",time:"11-09",hot:70,stars:"—",
     desc:"码力雷达 11-09 总榜显示 AI 开发工具与 Agent 项目持续领跑涨星榜。",
     tags:["总榜","AI 工具"],url:"https://www.maliradar.cn/history/2026-11-09/total/page/2"},
-  {id:19,ind:"gh",type:"github",aud:"toB",title:"GitHub 日榜趋势速报（11-07）",src:"掘金 / GitHub Trending",time:"11-07",hot:71,stars:"—",
-    desc:"GitHub 日榜趋势集中在 AI Agent、开源模型与开发者工具。",
-    tags:["Trending","Agent"],url:"https://juejin.cn/post/7704935347230965811"},
   {id:20,ind:"gh",type:"github",aud:"toB",title:"github-hot-hub：GitHub 热门仓库每小时归档",src:"GitHub",time:"长期",hot:64,stars:"—",
     desc:"每小时更新、按天归档 GitHub 热门仓库，适合 To B 团队持续追踪开源热点。",
     tags:["归档","追踪"],url:"https://github.com/SnailDev/github-hot-hub"},
 ];
 
 const POLICY = [
+  {t:"广东率先出台省级全屋智能领域专项政策",src:"广东省政府",time:"11-08",tag:"AI",url:"https://www.gd.gov.cn/zwgk/zcjd/snzcsd/content/post_4976610.html"},
+  {t:"广东省发改委：开展低空经济领域企业投资服务",src:"广东省发改委",time:"11-09",tag:"低空",url:"https://www.haizhu.gov.cn/gzhzfg/gkmlpt/content/11/11089/post_11089410.html"},
   {t:"AI 赋能宣传文化网络教育专题会议在广州召开",src:"广东省政府",time:"11-08",tag:"AI",url:"https://www.gd.gov.cn/gdywdt/zwzt/kjzlzq/rc/content/post_4975947.html"},
-  {t:"广州白云区：支持人工智能和数据产业高质量发展申报通知",src:"广州市白云区政数局",time:"11-07",tag:"AI",url:"https://www.by.gov.cn/gzbyzs/gkmlpt/content/11/11090/post_11090804.html"},
-  {t:"中央两份文件部署低空经济，广州发布 30 项应用场景清单",src:"观点网 / 广州",time:"11-05",tag:"低空",url:"https://www.guandian.hk/article/20261105/10054042.html"},
-  {t:"《广东省扩大消费实施方案》印发：加快发展人工智能+消费",src:"广东省政府",time:"11-05",tag:"AI",url:"https://m.sohu.com/coo/zmtq/1096636254_120988533"},
+  {t:"广州白云区：支持人工智能和数据产业高质量发展申报",src:"广州市白云区政数局",time:"11-07",tag:"AI",url:"https://www.by.gov.cn/gzbyzs/gkmlpt/content/11/11090/post_11090804.html"},
 ];
 
 const TENDER = [
-  {t:"广州海珠区：人工智能大模型应用政策兑现（第六批）· 大模型专题",src:"广州市海珠区政府",time:"11-09",amount:"政策兑现",url:"https://www.haizhu.gov.cn/gzhzrgzn/gkmlpt/content/11/11091/post_11091597.html"},
   {t:"广州琶洲港澳码头低空科技公园配套设施工程",src:"广州市规自局",time:"11-08",amount:"工程公示",url:"https://ghzyj.gz.gov.cn/ywpd/cxgh/ghxkgsgb/phgbnew/gbt/2025/content/post_11090056.html"},
+  {t:"广州海珠区：人工智能大模型应用政策兑现（第六批）· 大模型专题",src:"广州市海珠区政府",time:"11-09",amount:"政策兑现",url:"https://www.haizhu.gov.cn/gzhzrgzn/gkmlpt/content/11/11091/post_11091597.html"},
   {t:"南沙档案信息规划展览中心（二期）管理与运维服务招标",src:"中国政府采购网",time:"11-06",amount:"招标公告",url:"http://www.ccgp.gov.cn/cggg/dfgg/gkzb/202611/t20261106_27633055.htm"},
   {t:"广州供电局南沙基地技能鉴定大楼培训区改造造价咨询、设计审查、检测（二次）",src:"南方电网招投标",time:"11-06",amount:"询比采购",url:"http://www.bidding.csg.cn/zbhxrgs/1200448291.jhtml"},
   {t:"广东省工信厅：2027 年省级人工智能技术攻坚项目入库",src:"广东省工信厅",time:"11-05",amount:"项目入库",url:"https://www.gdqy.gov.cn/qygxj/gkmlpt/content/2/2204/post_2204712.html"},
@@ -520,12 +520,12 @@ function renderHero(){
         <span class="sep"></span>
         <span class="stamp">${dateStr}</span>
       </div>
-      <h1>OpenAI 百亿融资落地，估值 1.25 万亿美元</h1>
-      <p class="lead">OpenAI 完成新一轮百亿美元融资，估值达 1.25 万亿美元；Kimi 开放 2.8 万亿权重、谷歌视频模型降价三成，AI 开源与产业化提速。</p>
+      <h1>Anthropic 启动 IPO 路演，新一代模型同步发布</h1>
+      <p class="lead">Anthropic 最快本周二启动 IPO 路演，并在 IPO 前发布 Fable 5.2、MythosAI 等新模型，速度更快、成本更低；谷歌同步推出两款新 TPU 芯片。</p>
       <div class="hero-meta">
-        <span><b>来源</b> AI 资讯日报</span>
+        <span><b>来源</b> 全球科技早参 · 搜狐</span>
         <span><b>关注度</b> ${h.hot}</span>
-        <span><b>时效</b> 近 2 天</span>
+        <span><b>时效</b> 今日</span>
       </div>
       <a class="cta" href="${h.url}" target="_blank" rel="noopener">阅读全文 <span class="arr">→</span></a>
     </div>
@@ -533,7 +533,7 @@ function renderHero(){
       <div class="orb">
         <div class="ring"></div>
         <span class="sat s1"></span><span class="sat s2"></span><span class="sat s3"></span>
-        <div class="orb-core"><div class="n">百亿</div><div class="l">OpenAI 融资</div></div>
+        <div class="orb-core"><div class="n">5.2</div><div class="l">Fable 5.2</div></div>
       </div>
     </div>`;
 }
@@ -541,7 +541,7 @@ function renderHero(){
 /* ================= market strip ================= */
 const STRIP = [
   {k:"今日资讯总数",v:20,unit:"条",d:"近3天 · 7大行业",c:"#0a84ff",dir:"flat",dd:"持续更新"},
-  {k:"广东/广州政策",v:4,unit:"项",d:"AI · 低空",c:"#30d158",dir:"up",dd:"今日密集"},
+  {k:"广东/广州政策",v:4,unit:"项",d:"AI · 低空 · 全屋智能",c:"#30d158",dir:"up",dd:"今日密集"},
   {k:"招投标/课题",v:5,unit:"项",d:"AI · 低空 · 兑现",c:"#ff9f0a",dir:"up",dd:"To G 活跃"},
   {k:"GitHub 热门",v:3,unit:"个",d:"AI 工具领涨",c:"#ff375f",dir:"up",dd:"持续霸榜"},
 ];
