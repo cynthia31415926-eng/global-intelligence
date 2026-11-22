@@ -225,69 +225,69 @@
 <script>
 const DATA = [
   // AI
-  {id:1,ind:"ai",type:"market",aud:"toB",title:"Anthropic 挂牌纳斯达克，AI 龙头上市竞速",src:"AI 行业日报",time:"11-20",hot:90,
+  {id:1,ind:"ai",type:"product",aud:"toB",title:"前 DeepSeek 团队词元服务拓展，GPT-6.2 持续演进",src:"AI 资讯网",time:"11-22",hot:78,
+    desc:"前 DeepSeek 团队拓展词元服务，GPT-6.2 相关生态持续演进，AI 基础设施竞争加剧。",
+    tags:["词元服务","DeepSeek","GPT-6.2"],url:"https://aizws.net/news/detail/14694"},
+  {id:2,ind:"ai",type:"market",aud:"toB",title:"Anthropic 挂牌纳斯达克，AI 龙头上市竞速",src:"AI 行业日报",time:"11-20",hot:86,
     desc:"Anthropic 挂牌纳斯达克，AI 龙头上市竞速进入新阶段，资本与产业化双线加速。",
     tags:["Anthropic","纳斯达克","上市"],url:"https://damodev.csdn.net/6aff9cb6e5f4ca4eff92ab26.html"},
-  {id:2,ind:"ai",type:"product",aud:"toB",title:"阿里千问基于国产芯片训练，国产算力闭环提速",src:"AI 行业日报",time:"11-20",hot:84,
+  {id:3,ind:"ai",type:"product",aud:"toB",title:"阿里千问基于国产芯片训练，国产算力闭环提速",src:"AI 行业日报",time:"11-20",hot:82,
     desc:"阿里千问大模型基于国产芯片训练，国产算力与模型训练闭环进一步打通。",
     tags:["千问","国产芯片","算力"],url:"https://damodev.csdn.net/6aff9cb6e5f4ca4eff92ab26.html"},
-  {id:3,ind:"ai",type:"product",aud:"toB",title:"谷歌决策模型发布，AI 智能体决策能力升级",src:"AI 行业日报",time:"11-20",hot:78,
-    desc:"谷歌发布决策模型，AI 智能体在复杂任务规划与决策能力上进一步升级。",
-    tags:["谷歌","决策模型","智能体"],url:"https://damodev.csdn.net/6aff9cb6e5f4ca4eff92ab26.html"},
-  {id:4,ind:"ai",type:"policy",aud:"toG",title:"广东 12 部门印发《促进词元经济高质量发展行动计划（2026—2027）》",src:"广东省政务和数据管理局",time:"11-20",hot:86,
+  {id:4,ind:"ai",type:"policy",aud:"toG",title:"广东 12 部门印发《促进词元经济高质量发展行动计划（2026—2027）》",src:"广东省政务和数据管理局",time:"11-20",hot:84,
     desc:"广东 12 部门联合印发词元经济高质量发展行动计划，AI 词元经济进入全链条系统化发展。",
     tags:["词元经济","行动计划","12部门"],url:"https://zfsg.gd.gov.cn/zwgk/gggs/content/post_4982697.html"},
   // 新能源车
   {id:5,ind:"nev",type:"market",aud:"toB",title:"10 月新能源车渗透率 64.3%，电池企业超 20 万家",src:"网易财经",time:"11-17",hot:72,
     desc:"10 月新能源车渗透率达 64.3%，动力电池相关企业数量突破 20 万家，产业链持续扩容。",
     tags:["渗透率","64.3%"],url:"https://www.163.com/dy/article/LBVOE03G05568W0A.html"},
-  {id:6,ind:"nev",type:"market",aud:"toB",title:"新能源车销量占比持续走高，储能电池出货量同步走高",src:"搜狐汽车",time:"11-18",hot:70,
+  {id:6,ind:"nev",type:"market",aud:"toB",title:"新能源车销量占比持续走高，储能电池出货量同步走高",src:"搜狐汽车",time:"11-18",hot:68,
     desc:"我国新能源汽车销量占比持续走高，储能电池行业出货量同步攀升，产业链景气向上。",
     tags:["销量占比","储能电池"],url:"https://www.sohu.com/a/1100535097_122014422"},
   // 脑机接口
-  {id:7,ind:"bci",type:"market",aud:"toB",title:"暖芯迦完成 5 亿元 C+ 轮融资，视觉脑机接口助盲人「重新看见」",src:"杭州日报",time:"11-20",hot:84,
+  {id:7,ind:"bci",type:"product",aud:"toG",title:"脑机接口大会开幕，「北脑一号」领衔 15 项标志性成果",src:"北京青年报",time:"11-21",hot:90,
+    desc:"2026 脑机接口大会在京举办，「北脑一号」领衔 15 项标志性成果集中发布，产业化进入成果密集落地期。",
+    tags:["脑机大会","北脑一号","15项成果"],url:"https://www.sohu.com/a/1104722438_163278"},
+  {id:8,ind:"bci",type:"market",aud:"toB",title:"暖芯迦完成 5 亿元 C+ 轮融资，视觉脑机接口助盲人「重新看见」",src:"杭州日报",time:"11-20",hot:82,
     desc:"暖芯迦完成 5 亿元 C+ 轮融资，视觉脑机接口助力盲人「重新看见」，临床应用加速。",
     tags:["暖芯迦","C+轮","视觉脑机"],url:"https://hzdaily.hangzhou.com.cn/mrsb/2026/11/20/article_detail_3_20261120A118.html"},
-  {id:8,ind:"bci",type:"research",aud:"toG",title:"脑机接口到底能做什么？专家解读三大实用方向",src:"羊城晚报",time:"11-20",hot:74,
+  {id:9,ind:"bci",type:"research",aud:"toG",title:"脑机接口到底能做什么？专家解读三大实用方向",src:"羊城晚报",time:"11-20",hot:72,
     desc:"专家解读脑机接口三大实用方向，康复、交互与认知增强成为落地主线。",
     tags:["三大方向","康复","专家"],url:"https://health.ycwb.com/2026-11/20/content_54352473.htm"},
-  {id:9,ind:"bci",type:"product",aud:"toG",title:"2026 脑机接口大会在北京昌平启幕",src:"北京市科委",time:"11-19",hot:78,
-    desc:"2026 脑机接口大会在北京昌平启幕，聚焦前沿技术与产业化路径，产学研密集对接。",
-    tags:["脑机大会","产业化"],url:"https://kw.beijing.gov.cn/xwdt/kcyx/kcyxkchd/202611/t20261110_4939950.html"},
   // 商业航天
-  {id:10,ind:"aero",type:"product",aud:"toG",title:"朱雀三号回收发动机完成验收试车，具备复用条件",src:"光明网",time:"11-21",hot:92,
+  {id:10,ind:"aero",type:"product",aud:"toG",title:"可回收火箭发动机二次点火成功，卫星板块催化不断",src:"东方财富",time:"11-21",hot:80,
+    desc:"可回收火箭发动机二次点火成功，卫星互联网板块年底催化不断，资金大举布局。",
+    tags:["可回收","二次点火","卫星板块"],url:"https://guba.eastmoney.com/news,cjpl,1799257212.html"},
+  {id:11,ind:"aero",type:"product",aud:"toG",title:"朱雀三号回收发动机完成验收试车，具备复用条件",src:"光明网",time:"11-21",hot:88,
     desc:"朱雀三号可回收火箭发动机完成验收试车、具备重复使用条件，中国可回收火箭产业化提速。",
     tags:["朱雀三号","可回收","复用"],url:"https://m.gmw.cn/2026-11/21/content_1304587890.htm"},
-  {id:11,ind:"aero",type:"product",aud:"toG",title:"我国成功发射卫星互联网低轨 30 组卫星",src:"网易 / 央视",time:"11-20",hot:86,
+  {id:12,ind:"aero",type:"product",aud:"toG",title:"我国成功发射卫星互联网低轨 30 组卫星",src:"网易 / 央视",time:"11-20",hot:82,
     desc:"我国成功发射卫星互联网低轨 30 组卫星，卫星互联网组网节奏持续加快。",
     tags:["卫星互联网","低轨30组"],url:"https://www.163.com/dy/article/LC888QCS051481US.html"},
-  {id:12,ind:"aero",type:"product",aud:"toB",title:"德「光谱号」成功送星入轨，写欧洲航天新页",src:"青年日报",time:"11-19",hot:70,
-    desc:"德国「光谱号」火箭成功送星入轨，欧洲商业航天再下一城，全球发射市场竞争加剧。",
-    tags:["光谱号","欧洲航天"],url:"https://www.ydn.com.tw/tw/News/ugC_News_Detail.aspx?ID=650569"},
   // 智能船舶
-  {id:13,ind:"ship",type:"research",aud:"toB",title:"规模全球第一后，航运业开始比拼「被 AI 看见」",src:"新浪财经",time:"11-20",hot:70,
+  {id:13,ind:"ship",type:"research",aud:"toB",title:"规模全球第一后，航运业开始比拼「被 AI 看见」",src:"新浪财经",time:"11-20",hot:68,
     desc:"航运规模全球第一后，行业开始比拼「被 AI 看见」，智能感知与数字化成为新竞争维度。",
     tags:["航运","AI感知","数字化"],url:"https://finance.sina.com.cn/roll/2026-11-20/doc-inizixmr0413648.shtml"},
-  {id:14,ind:"ship",type:"product",aud:"toB",title:"全国首艘纯电智能远控集装箱海船「图灵」轮试点运行",src:"搜狐",time:"11-20",hot:72,
+  {id:14,ind:"ship",type:"product",aud:"toB",title:"全国首艘纯电智能远控集装箱海船「图灵」轮试点运行",src:"搜狐",time:"11-20",hot:70,
     desc:"全国首艘纯电智能远控集装箱海船「图灵」轮试点运行，绿色智能航运商业化落地。",
     tags:["图灵轮","试点运行","纯电"],url:"https://www.sohu.com/a/1103906714_362042"},
   // 低空经济
-  {id:15,ind:"low",type:"market",aud:"toG",title:"琶洲低空通信感知专网通过国家级高层次专家论证",src:"广州市海珠区政府",time:"11-20",hot:82,
+  {id:15,ind:"low",type:"market",aud:"toG",title:"琶洲低空通信感知专网通过国家级高层次专家论证",src:"广州市海珠区政府",time:"11-21",hot:80,
     desc:"广州琶洲低空通信感知专网通过国家级高层次专家论证，为超大城市低空商业化运营筑牢数字底座。",
     tags:["琶洲","低空专网","专家论证"],url:"https://www.haizhu.gov.cn/gzhzfg/gkmlpt/content/11/11113/post_11113637.html"},
-  {id:16,ind:"low",type:"product",aud:"toB",title:"广州白云企业低空产品亮相 APEC，秀出硬核实力",src:"广州白云",time:"11-19",hot:70,
+  {id:16,ind:"low",type:"product",aud:"toB",title:"广州白云企业低空产品亮相 APEC，秀出硬核实力",src:"广州白云",time:"11-19",hot:68,
     desc:"广州白云区企业低空产品亮相 APEC，低空经济「广州造」走向国际舞台。",
     tags:["APEC","广州白云","低空"],url:"https://huacheng.gz-cmc.com/pages/2026/11/19/7a68f164f2d5467b809cfb6bf41e82fb.html"},
-  {id:17,ind:"low",type:"market",aud:"toG",title:"总投资 3.66 亿！花都低空临空产业再添硬核支撑",src:"广州市花都区政府",time:"11-17",hot:72,
+  {id:17,ind:"low",type:"market",aud:"toG",title:"总投资 3.66 亿！花都低空临空产业再添硬核支撑",src:"广州市花都区政府",time:"11-17",hot:70,
     desc:"广州花都低空临空产业项目总投资 3.66 亿元落地，低空基础设施与产业集聚再提速。",
     tags:["花都","3.66亿"],url:"https://www.huadu.gov.cn/yshj/hdzs/zsxx/content/post_11104272.html"},
   // GitHub 热门
-  {id:18,ind:"gh",type:"github",aud:"toB",title:"GitHub 日报（11-21）：BugHunter +1,660 重回首位",src:"Qiita / GitHub",time:"11-21",hot:72,stars:"—",
-    desc:"GitHub 日报显示 BugHunter 以 +1,660 星重回首位，开发者工具与安全类项目热度回升。",
-    tags:["BugHunter","日报","+1660"],url:"https://qiita.com/Git_Dayori/items/ed577bab8b7e4069f523"},
-  {id:19,ind:"gh",type:"github",aud:"toB",title:"GitHub Trending 榜单（11-21）",src:"GitHub Trending",time:"11-21",hot:68,stars:"—",
-    desc:"GitHub 11-21 当日热门开源项目榜单，AI Agent 与开发者工具持续霸榜。",
-    tags:["Trending","榜单"],url:"https://yidinghuiziyou.com/github/trending/2026-11-21/"},
+  {id:18,ind:"gh",type:"github",aud:"toB",title:"GitHub 日榜趋势速报（11-22）",src:"掘金 / GitHub Trending",time:"11-22",hot:70,stars:"—",
+    desc:"GitHub 日榜趋势集中在 AI Agent、开源模型与开发者工具。",
+    tags:["Trending","Agent"],url:"https://www.cnblogs.com/wflynn/p/23744129"},
+  {id:19,ind:"gh",type:"github",aud:"toB",title:"GitHub 日报（11-22）：BugHunter +1,794 首位维持",src:"Qiita / GitHub",time:"11-22",hot:68,stars:"—",
+    desc:"GitHub 日报显示 BugHunter 以 +1,794 星连续位居首位，安全与开发者工具热度回升。",
+    tags:["BugHunter","日报","+1794"],url:"https://qiita.com/Git_Dayori/items/d446ed12fe0fce3fb34b"},
   {id:20,ind:"gh",type:"github",aud:"toB",title:"github-hot-hub：GitHub 热门仓库每小时归档",src:"GitHub",time:"长期",hot:64,stars:"—",
     desc:"每小时更新、按天归档 GitHub 热门仓库，适合 To B 团队持续追踪开源热点。",
     tags:["归档","追踪"],url:"https://github.com/SnailDev/github-hot-hub"},
@@ -360,10 +360,10 @@ function renderFeed(){
   const list=feedList();
   const hero=`
     <div class="hero">
-      <span class="kicker">● 今日头条 · 商业航天</span>
-      <h1>朱雀三号回收发动机完成验收试车</h1>
-      <div class="lead">朱雀三号可回收火箭发动机完成验收试车，我国同日成功发射卫星互联网低轨 30 组卫星。</div>
-      <div class="hmeta"><span><b>来源</b> 光明网</span><span><b>关注度</b> 92</span><span><b>时效</b> 今日</span></div>
+      <span class="kicker">● 今日头条 · 脑机接口</span>
+      <h1>脑机接口大会：北脑一号领衔 15 项成果</h1>
+      <div class="lead">2026 脑机接口大会在京举办，北脑一号领衔 15 项标志性成果集中发布。</div>
+      <div class="hmeta"><span><b>来源</b> 北京青年报</span><span><b>关注度</b> 90</span><span><b>时效</b> 近1天</span></div>
     </div>
     <div class="stats">
       <div class="stat c1"><div class="k">今日资讯</div><div class="v">${DATA.length}</div><div class="d">近3天 · 7大行业</div></div>
