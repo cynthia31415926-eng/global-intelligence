@@ -225,85 +225,85 @@
 <script>
 const DATA = [
   // AI
-  {id:1,ind:"ai",type:"product",aud:"toB",title:"新版「文鳐」海洋大模型发布",src:"中国海洋报",time:"11-25",hot:86,
-    desc:"新版「文鳐」海洋大模型发布，面向海洋观测、预报与航运场景，AI 与海洋产业融合提速。",
-    tags:["文鳐","海洋大模型","航运"],url:"https://mp.ccin.com.cn/detail/76caf77c8a58043e15d22f2e455a1d28"},
-  {id:2,ind:"ai",type:"product",aud:"toB",title:"智谱 GLM-5.4 上线 Coding Plan",src:"第一财经",time:"11-24",hot:84,
-    desc:"智谱 GLM-5.4 上线 Coding Plan，面向编码场景的智能体能力再升级，开发者效率进一步提升。",
-    tags:["智谱","GLM-5.4","Coding"],url:"https://www.yicai.com/brief/103450913.html"},
-  {id:3,ind:"ai",type:"product",aud:"toB",title:"字节开源 Axion 1.0，国产开源大模型再添新军",src:"AI 新闻日报",time:"11-23",hot:78,
-    desc:"字节跳动开源 Axion 1.0 大模型，国产开源大模型阵营再添新军，To B 二次开发门槛降低。",
-    tags:["字节","Axion","开源"],url:"https://damodev.csdn.net/6b0378bc40858c2d881d386a.html"},
-  {id:4,ind:"ai",type:"policy",aud:"toG",title:"广东 12 部门印发《促进词元经济高质量发展行动计划（2026—2027）》",src:"广东省政务和数据管理局",time:"11-20",hot:80,
+  {id:1,ind:"ai",type:"product",aud:"toB",title:"文心 5.5 开源百万上下文，AI 产业规模半年破 7500 亿",src:"AI 资讯日报",time:"11-26",hot:86,
+    desc:"文心 5.5 开源百万上下文，智谱 GLM-5.4 换架构、小鹏图灵具身架构落地，AI 产业规模半年破 7500 亿。",
+    tags:["文心5.5","百万上下文","7500亿"],url:"https://damodev.csdn.net/6b077686e5f4ca4eff93cc3d.html"},
+  {id:2,ind:"ai",type:"product",aud:"toB",title:"智谱 GLM-5.4 换架构，推理能力再升级",src:"AI 资讯日报",time:"11-26",hot:80,
+    desc:"智谱 GLM-5.4 更换底层架构，推理与长上下文能力再升级，国产大模型迭代提速。",
+    tags:["智谱","GLM-5.4","架构"],url:"https://damodev.csdn.net/6b077686e5f4ca4eff93cc3d.html"},
+  {id:3,ind:"ai",type:"policy",aud:"toG",title:"《广东省算力发展「十五五」规划》印发",src:"广东省发改委",time:"11-26",hot:84,
+    desc:"广东印发算力发展「十五五」规划，统筹算力基础设施建设与算力供给，夯实 AI 产业底座。",
+    tags:["算力","十五五","广东"],url:"https://www.gd.gov.cn/gdywdt/zwzt/rgznjqr/zcwj/content/post_4985489.html"},
+  {id:4,ind:"ai",type:"policy",aud:"toG",title:"广东 12 部门印发《促进词元经济高质量发展行动计划（2026—2027）》",src:"广东省政务和数据管理局",time:"11-20",hot:78,
     desc:"广东 12 部门联合印发词元经济高质量发展行动计划，AI 词元经济进入全链条系统化发展。",
     tags:["词元经济","行动计划"],url:"https://zfsg.gd.gov.cn/zwgk/gggs/content/post_4982697.html"},
   // 新能源车
-  {id:5,ind:"nev",type:"market",aud:"toB",title:"10 月新能源车产销延续回暖，机构看好 26 年锂电超预期",src:"新浪财经 / 研报",time:"11-26",hot:76,
-    desc:"10 月新能源车产销延续回暖，机构继续看好 2026 年锂电产业链超预期表现。",
+  {id:5,ind:"nev",type:"market",aud:"toB",title:"新能源车出口狂飙 136.7%，锂电链 2026 销量上修至 1876 万辆",src:"中财网",time:"11-24",hot:78,
+    desc:"新能源车出口同比狂飙 136.7%，锂电产业链 2026 年销量预期上修至 1876 万辆，出海景气度高。",
+    tags:["出口","136.7%","1876万辆"],url:"https://futures.cfi.cn/p20261124000200.html"},
+  {id:6,ind:"nev",type:"market",aud:"toB",title:"中信建投：10 月新能源产销回暖，看好 26 年锂电超预期",src:"新浪财经 / 中信建投",time:"11-25",hot:74,
+    desc:"中信建投跟踪显示 10 月新能源车产销延续回暖，继续看好 2026 年锂电产业链超预期。",
     tags:["产销回暖","锂电","26年"],url:"http://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/industry/rptid/848805008860/index.phtml"},
-  {id:6,ind:"nev",type:"market",aud:"toB",title:"乘联分会：10 月动力电池装机量 82.4GWh，同比 +22.3%",src:"moomoo / 乘联分会",time:"11-23",hot:72,
+  {id:7,ind:"nev",type:"market",aud:"toB",title:"乘联分会：10 月动力电池装机量 82.4GWh，同比 +22.3%",src:"moomoo / 乘联分会",time:"11-23",hot:70,
     desc:"乘联分会数据显示 10 月新能源汽车动力电池装机量 82.4GWh，同比增长 22.3%，产业链景气向上。",
     tags:["装机量","82.4GWh"],url:"https://www.moomooapp.com/hant/news/post/1005321612"},
-  {id:7,ind:"nev",type:"market",aud:"toB",title:"「车电融合」渐成主流，二线动力电池企业崛起",src:"东方财富",time:"11-23",hot:70,
-    desc:"「车电融合」渐成主流，二线新能源动力电池企业加速崛起，行业格局生变。",
-    tags:["车电融合","二线电池"],url:"https://fund.eastmoney.com/a/202611233937005150.html"},
   // 脑机接口
-  {id:8,ind:"bci",type:"product",aud:"toG",title:"外媒：中国发布具有里程碑意义的脑机接口技术成果",src:"腾讯 / 外媒",time:"11-25",hot:84,
+  {id:8,ind:"bci",type:"market",aud:"toB",title:"马斯克脑机接口上市在即，关键临床试验获批",src:"36氪",time:"11-26",hot:90,
+    desc:"马斯克旗下脑机接口公司上市在即，关键临床试验获批，意念操控玩《GTA 6》成现实，脑机商业化提速。",
+    tags:["马斯克","上市","临床试验"],url:"https://eu.36kr.com/zh/p/4086411482229124"},
+  {id:9,ind:"bci",type:"product",aud:"toG",title:"外媒：中国发布具有里程碑意义的脑机接口技术成果",src:"腾讯 / 外媒",time:"11-25",hot:80,
     desc:"外媒评价中国发布具有里程碑意义的脑机接口技术成果，国产脑机接口国际关注度提升。",
-    tags:["里程碑","国际关注","脑机"],url:"https://news.qq.com/rain/a/20261125A0DSHS00"},
-  {id:9,ind:"bci",type:"product",aud:"toG",title:"脑机接口「接入」康养，惠及民生",src:"新浪财经",time:"11-25",hot:76,
+    tags:["里程碑","国际关注"],url:"https://news.qq.com/rain/a/20261125A0DSHS00"},
+  {id:10,ind:"bci",type:"product",aud:"toG",title:"脑机接口「接入」康养，惠及民生",src:"新浪财经",time:"11-25",hot:72,
     desc:"脑机接口加速「接入」康养场景，康复与养老应用惠及民生，产业化落地提速。",
     tags:["康养","康复","民生"],url:"https://finance.sina.com.cn/jjxw/2026-11-25/doc-inizxaum9585732.shtml"},
-  {id:10,ind:"bci",type:"product",aud:"toG",title:"「北脑一号」已完成 40 余例人体植入",src:"人民网",time:"11-22",hot:82,
-    desc:"2026 脑机接口大会发布 15 项标志性成果，「北脑一号」已完成 40 余例人体植入，临床规模化验证提速。",
-    tags:["北脑一号","40余例"],url:"http://bj.people.com.cn/n2/2026/1122/c349239-41757495.html"},
   // 商业航天
-  {id:11,ind:"aero",type:"product",aud:"toB",title:"天兵科技等成立新公司，含火箭发动机研发业务",src:"证券时报",time:"11-26",hot:72,
+  {id:11,ind:"aero",type:"market",aud:"toG",title:"海上发射母港竞速扩容，商业航天高频发射能力加快形成",src:"搜狐",time:"11-26",hot:74,
+    desc:"海上发射母港竞速扩容，商业航天高频发射能力加快形成，发射频次与运力同步提升。",
+    tags:["海上发射","母港","高频发射"],url:"https://m.sohu.com/coo/zmtq/1105585302_122512986"},
+  {id:12,ind:"aero",type:"product",aud:"toB",title:"天兵科技等成立新公司，含火箭发动机研发业务",src:"证券时报",time:"11-26",hot:70,
     desc:"天兵科技等成立科技新公司，经营范围含火箭发动机研发，商业航天上游布局加速。",
-    tags:["天兵科技","火箭发动机","新公司"],url:"https://www.stcn.com/article/detail/4352996.html"},
-  {id:12,ind:"aero",type:"product",aud:"toG",title:"力箭二号进入多发并行总装阶段，交付提速",src:"中科宇航",time:"11-24",hot:78,
-    desc:"中科宇航力箭二号进入多发并行总装阶段，产能双线释放、履约交付提速，商业火箭批量化提速。",
-    tags:["力箭二号","并行总装"],url:"https://www.cas-space.com/article/630.html"},
+    tags:["天兵科技","火箭发动机"],url:"https://www.stcn.com/article/detail/4352996.html"},
   // 智能船舶
-  {id:13,ind:"ship",type:"product",aud:"toB",title:"外媒：广州造智能船舶舰队驶向世界（APEC）",src:"国际在线",time:"11-25",hot:76,
+  {id:13,ind:"ship",type:"research",aud:"toG",title:"香港议员关注自动驾驶船舶应用，首要原则确保海上安全",src:"星岛头条",time:"11-26",hot:66,
+    desc:"香港议员关注自动驾驶船舶应用及配套，强调首要原则是确保海上安全。",
+    tags:["自动驾驶船舶","海上安全","香港"],url:"https://www.stheadline.com/zh-hans/loadnext/0/3640985"},
+  {id:14,ind:"ship",type:"product",aud:"toB",title:"外媒：广州造智能船舶舰队驶向世界（APEC）",src:"国际在线",time:"11-25",hot:74,
     desc:"广州造智能船舶舰队亮相 APEC、驶向世界，广州船舶制造与国际市场对接提速。",
     tags:["广州造","智能船舶","APEC"],url:"https://news.cri.cn/20261125/2c2dc115-4579-4d7c-a370-3312f9392441.html"},
-  {id:14,ind:"ship",type:"product",aud:"toB",title:"中国船级社助力全国首艘 R1 智能纯电动海船交付",src:"中国船级社",time:"11-23",hot:70,
-    desc:"中国船级社武汉分社助力全国首艘 R1 智能附加标志纯电动智能海船顺利交付，绿色智能船舶规范体系完善。",
-    tags:["R1","纯电动","智能海船"],url:"https://www.ccs.org.cn/ccswz/articleDetail?id=202611230320451086&columnId=201900002000000055"},
   // 低空经济
-  {id:15,ind:"low",type:"market",aud:"toG",title:"广州一份千万级低空服务采购成交，运营模式仍待明确",src:"网易",time:"11-25",hot:74,
-    desc:"广州一份千万级低空服务采购项目成交，但「谁来飞、怎么飞」的运营模式仍待明确。",
-    tags:["低空采购","千万级","运营模式"],url:"https://www.163.com/dy/article/LCIRD3KQ05148ALS.html"},
-  {id:16,ind:"low",type:"market",aud:"toG",title:"琶洲低空通信感知专网通过国家级高层次专家论证",src:"广州市海珠区政府",time:"11-21",hot:76,
+  {id:15,ind:"low",type:"market",aud:"toB",title:"小鹏汇天飞行汽车制造公司增资至 17 亿，增幅约 89%",src:"搜狐汽车",time:"11-26",hot:82,
+    desc:"小鹏汇天旗下飞行汽车制造公司增资至 17 亿元、增幅约 89%，eVTOL 量产与商业化提速。",
+    tags:["小鹏汇天","增资","17亿"],url:"https://www.sohu.com/a/1106684047_122014422"},
+  {id:16,ind:"low",type:"market",aud:"toG",title:"兴业银行广州分行：打造金融引擎激活「空天动力」",src:"广州日报",time:"11-26",hot:68,
+    desc:"兴业银行广州分行打造金融引擎激活「空天动力」，金融赋能空天与低空产业发展。",
+    tags:["金融赋能","空天动力","广州"],url:"https://huacheng.gz-cmc.com/pages/2026/11/26/ba44dc42cbeb40c899cad9189405eef2.html"},
+  {id:17,ind:"low",type:"market",aud:"toG",title:"琶洲低空通信感知专网通过国家级高层次专家论证",src:"广州市海珠区政府",time:"11-21",hot:74,
     desc:"广州琶洲低空通信感知专网通过国家级高层次专家论证，为超大城市低空商业化运营筑牢数字底座。",
     tags:["琶洲","低空专网"],url:"https://www.haizhu.gov.cn/gzhzfg/gkmlpt/content/11/11113/post_11113637.html"},
-  {id:17,ind:"low",type:"market",aud:"toG",title:"总投资 3.66 亿！花都低空临空产业再添硬核支撑",src:"广州市花都区政府",time:"11-24",hot:66,
-    desc:"广州花都低空临空产业项目总投资 3.66 亿元落地，低空基础设施与产业集聚再提速。",
-    tags:["花都","3.66亿"],url:"https://www.gz.gov.cn/ysgz/xwdt/ysdt/content/post_11115243.html"},
   // GitHub 热门
-  {id:18,ind:"gh",type:"github",aud:"toB",title:"GitHub 日报（11-26）：BugHunter +1,644 居首",src:"Qiita / GitHub",time:"11-26",hot:70,stars:"—",
-    desc:"GitHub 日报显示 BugHunter 以 +1,644 星居首，常驻热榜项目持续霸榜。",
-    tags:["BugHunter","日报"],url:"https://qiita.com/Git_Dayori/items/605ab24da850ff5d955e"},
-  {id:19,ind:"gh",type:"github",aud:"toB",title:"GitHub 热榜项目周榜（11-23）",src:"知乎 / GitHub",time:"11-25",hot:66,stars:"—",
-    desc:"GitHub 热榜项目周榜，AI Agent 与开发者工具持续领跑。",
-    tags:["热榜","周榜"],url:"https://zhuanlan.zhihu.com/p/2108285637694641612"},
+  {id:18,ind:"gh",type:"github",aud:"toB",title:"码力雷达 11-27 总榜：AI 工具持续领跑",src:"码力雷达",time:"11-27",hot:70,stars:"—",
+    desc:"码力雷达 11-27 总榜显示 AI 开发工具与 Agent 项目持续领跑涨星榜。",
+    tags:["总榜","AI 工具"],url:"https://www.maliradar.cn/history/2026-11-27/total/page/2"},
+  {id:19,ind:"gh",type:"github",aud:"toB",title:"GitHub 日榜趋势速报（11-26）",src:"掘金 / GitHub Trending",time:"11-26",hot:66,stars:"—",
+    desc:"GitHub 日榜趋势集中在 AI Agent、开源模型与开发者工具。",
+    tags:["Trending","Agent"],url:"https://www.cnblogs.com/wflynn/p/23785835"},
   {id:20,ind:"gh",type:"github",aud:"toB",title:"github-hot-hub：GitHub 热门仓库每小时归档",src:"GitHub",time:"长期",hot:64,stars:"—",
     desc:"每小时更新、按天归档 GitHub 热门仓库，适合 To B 团队持续追踪开源热点。",
     tags:["归档","追踪"],url:"https://github.com/SnailDev/github-hot-hub"},
 ];
 const POLICY = [
-  {t:"《数字广东建设「十五五」规划》解读",src:"广东省政务和数据管理局",time:"11-24",tag:"AI",url:"https://zfsg.gd.gov.cn/zwgk/zcjd2/content/post_4981323.html"},
+  {t:"《广东省算力发展「十五五」规划》印发",src:"广东省发改委",time:"11-26",tag:"AI",url:"https://www.gd.gov.cn/gdywdt/zwzt/rgznjqr/zcwj/content/post_4985489.html"},
   {t:"广东 12 部门印发《促进词元经济高质量发展行动计划（2026—2027）》",src:"广东省政务和数据管理局",time:"11-20",tag:"AI",url:"https://zfsg.gd.gov.cn/zwgk/gggs/content/post_4982697.html"},
+  {t:"《数字广东建设「十五五」规划》解读",src:"广东省政务和数据管理局",time:"11-24",tag:"AI",url:"https://zfsg.gd.gov.cn/zwgk/zcjd2/content/post_4981323.html"},
   {t:"广州「十五五」规划：打造全球领先空天强市",src:"广州市政府",time:"11-13",tag:"空天",url:"https://www.gz.gov.cn/gzzcwjk/gzdata/content/mpost_10833638.html"},
-  {t:"广东设立省级词元交易服务平台",src:"广东省政府",time:"11-13",tag:"AI",url:"https://www.gdhmo.gov.cn/xwzx/gdyw/content/post_123694.html"},
 ];
 const TENDER = [
+  {t:"广州珠江 450 客位纯电动游船建造项目招标",src:"安天 e 采 / 广州公共资源交易中心",time:"11-27",amount:"招标公告",url:"https://www.xinecai.com/markerswebnotice/732371303565753295.html"},
   {t:"黄埔老港海关缉私分局办公楼消防加压系统改造项目",src:"中国政府采购网",time:"11-25",amount:"竞争性磋商",url:"http://www.ccgp.gov.cn/cggg/zygg/jzxcs/202611/t20261125_27752047.htm"},
   {t:"广州市从化区流溪河生态廊道绿美米埗建设首开区运营物资采购",src:"广州公共资源交易中心",time:"11-25",amount:"比选公告",url:"https://ygcg.gzggzy.cn/p92/hw/20261125/469128.html"},
   {t:"广重集团工艺设备技术改造项目设备基础工程设计施工总承包",src:"我的钢铁网 / 广重集团",time:"11-24",amount:"招标公告",url:"https://gc.mysteel.com/zc/detail.html?id=YTQzNTM4MjM="},
   {t:"广州市增城区荔湖街新城大道东侧地块建设项目施工总承包",src:"广州公共资源交易中心",time:"11-22",amount:"招标公告",url:"https://ywtb.gzggzy.cn/jyfw/002001/002001004/002001004011/20261107/81eb807b-0787-4352-ae2a-720d7c575738_d6e079c1-47d6-41b5-a0d1-71e833b1709b_dayichengqi.html"},
-  {t:"广州市净水有限公司预处理、二沉池等升级改造项目（标段一）",src:"广州公共资源交易中心",time:"11-21",amount:"招标公告",url:"https://ygcg.gzggzy.cn/p92/qt5/20261121/467460.html"},
 ];
 const INDUSTRIES = [
   {key:"ai",name:"AI",color:"#0a84ff"},
@@ -360,10 +360,10 @@ function renderFeed(){
   const list=feedList();
   const hero=`
     <div class="hero">
-      <span class="kicker">● 今日头条 · AI</span>
-      <h1>新版「文鳐」海洋大模型发布</h1>
-      <div class="lead">新版「文鳐」海洋大模型发布，面向海洋观测、预报与航运场景。</div>
-      <div class="hmeta"><span><b>来源</b> 中国海洋报</span><span><b>关注度</b> 86</span><span><b>时效</b> 近1天</span></div>
+      <span class="kicker">● 今日头条 · 脑机接口</span>
+      <h1>马斯克脑机接口上市在即</h1>
+      <div class="lead">马斯克脑机接口上市在即，关键临床试验获批，意念操控玩 GTA6 成现实。</div>
+      <div class="hmeta"><span><b>来源</b> 36氪</span><span><b>关注度</b> 90</span><span><b>时效</b> 近1天</span></div>
     </div>
     <div class="stats">
       <div class="stat c1"><div class="k">今日资讯</div><div class="v">${DATA.length}</div><div class="d">近3天 · 7大行业</div></div>
